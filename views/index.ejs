@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/libs/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!--REACT JS--> 
+    <!-- <script  src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet"  href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row first_blc">
+            <button id="goState_initDepoBtn" class="btn btn-primary">Satement Init Deposit</button>
+            <button id="goState_initPurchBtn" class="btn btn-info">Satement Init Purchase</button>
+            <button id="goState_initMorePurchBtn" class="btn btn-danger">Satement More Purchase</button>
+            <button id="goState_balanceBtn" class="btn btn-default">Satement Balance</button>
+        </div>
+        <div class="row" id="depost_blc">
+            <h1>Satement Init Deposit Demo</h1>
+            <p style="color: red"><%= error %></p>
+            <form action="javascript:void(0)">
+                <div class="form-group">
+                    <p>Date From: <input type="text" id="datepicker1" name="datepicker1" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <p>Date End: <input type="text" id="datepicker2" name="datepicker2" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <Button id="reportBtn1" class="btn btn-primary" >Report</Button>
+                </div>
+            </form>
+        </div>
+        <div class="row" id="purchase_blc">
+            <h1>Trade History</h1>
+            <form action="javascript:void(0)">
+                <div class="form-group">
+                    <p>Date From: <input type="text" id="datepicker2_1" name="datepicker1" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <p>Date End: <input type="text" id="datepicker2_2" name="datepicker2" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <Button id="reportBtn2" class="btn btn-primary" c>Table</Button>
+                </div>
+            </form>
+        </div>
+        <div class="row" id="morePurchase_blc">
+            <h1>Satement More Purchase Demo</h1>
+            <form action="javascript:void(0)" >
+                <div class="form-group">
+                    <p>Date From: <input type="text" id="datepicker3_1" name="datepicker1" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <p>Date End: <input type="text" id="datepicker3_2" name="datepicker2" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <Button id="reportBtn3" class="btn btn-primary" c>Report 2</Button>
+                </div>
+            </form>
+        </div>
+        <div class="row" id="balance_blc">
+            <h1>Satement Balance Demo</h1>
+            <form action="/report4" method="POST">
+                <div class="form-group">
+                    <p>Date From: <input type="text" id="datepicker4_1" name="datepicker1" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <p>Date End: <input type="text" id="datepicker4_2" name="datepicker2" class="from-control"></p>
+                </div>
+                <div class="form-group">
+                    <Button id="reportBtn2" class="btn btn-primary" c>Report</Button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-flash-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/jsx"  src="/js/custom.jsx"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker1" ).datepicker();
+            $( "#datepicker2" ).datepicker();
+        } );
+    </script>
+</body>
+</html>

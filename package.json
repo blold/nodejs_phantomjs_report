@@ -1,0 +1,24 @@
+{
+  "name": "report",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "child_process": "^1.0.2",
+    "ejs": "^2.6.1",
+    "empty-folder": "^2.0.2",
+    "express": "^4.16.3",
+    "firebase-admin": "^5.12.1",
+    "fs": "0.0.1-security",
+    "node-sass-middleware": "^0.11.0",
+    "path": "^0.12.7",
+    "phantomjs-prebuilt": "^2.1.16",
+    "webpage": "^0.3.0"
+  }
+}

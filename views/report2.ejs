@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/libs/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <!--REACT JS--> 
+    <!-- <script  src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
+
+    <link rel="stylesheet"  href="/css/style.css">
+</head>
+<body id="report2Body">
+        <img src="/imgs/banner_t1.png" alt="">
+    <div class="container">
+        <div class="row report_init_blc" >
+                
+            <div class="top_name_blc ">
+                <div class="top_name_blc_left">
+                    <h4><%= datas.user%></h4>
+                </div>
+                <div class="top_name_blc_right">
+                    <h4>Statement | CONTRACT NOTE | INVOICE</h4>
+                    <p><%= datas.data.printDate%></p>
+                    <p>Account: C***** Share trading</p>
+                    <p>Printed at <span><%= datas.data.printTime %></span> </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="account_summ_blc">
+                    <h4>ACCOUNT SUMMARY IN AUD</h4>
+                    <!-- <div id="account_sum"></div> -->
+                    <div class="account_table ">
+                        <div class="account_table_head">
+                            <h5>Details</h5>
+                            <h5>Total AUD</h5>
+                        </div>
+                        <div class="account_table_body">
+                            <% if (datas) {%>
+                            <% datas.data.ac_sum.forEach(function(d){ %>
+                            <div class="account_table_body_inner1">
+                                <span><%= d.name %></span>
+                                <span><%= d.value %></span>
+                            </div>
+                            <% })}else{ %>
+                                <div>no found</div>
+                            <% }%>
+                        </div>
+                    </div>
+                </div>
+                <div class="exchange_rates_blc">
+                    <h4>AUD EXCHANGE RATES</h4>
+                    <div class="exchange_table">
+                        <div class="exchange_table_head">
+                            <h5 class="inline">Converted form</h5>
+                            <h5 class="inline">Converted to</h5>
+                            <h5 class="inline">Indicative exchange rate</h5>
+                        </div>
+                        <div class="exchange_table_body">
+                            <% if (datas) {%>
+                            <% datas.data.ex_r.forEach(function(d){ %>
+                            <span ><%= d.from %></span>
+                            <span><%= d.to %></span>
+                            <span><%= d.rate %></span>
+                            <% })}else{ %>
+                                <div>no found</div>
+                            <% }%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="acount_active_blc">
+                    <h4>HOLDINGS USD</h4>
+                    <div class="activity_table">
+
+                        <table style="width: 100%">
+                            <thead class="table_thead">
+                                <th>Detail</th>
+                                <th>ISIN</th>
+                                <th>Quantity</th>
+                                <th>Cost</th>
+                                <th>Current</th>
+                                <th>Value</th>
+                                <th>Gain/Loss($)</th>
+                                <th>Gain/Loss(%)</th>
+                            </thead>
+                            <tbody>
+                            <% if (datas){ %>
+                                <% datas.data.h_usd.forEach(function(d){ %>
+                                <tr>
+                                    <td><%= d.detail %></td>
+                                    <td><%= d.isin %></td>
+                                    <td><%= d.quantity %></td>
+                                    <td><%= d.cost %></td>
+                                    <td><%= d.current %></td>
+                                    <td><%= d.value %></td>
+                                    <td><%= d.gl_d %></td>
+                                    <td><%= d.gl_p %></td>
+                                </tr>
+                            <% })}else{ %>
+                                <div>no found</div>
+                            <% }%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="acount_active_blc">
+                    <h4>AUD ACCOUNT ACTIVITY</h4>
+                    <div class="activity_table">
+                        <table>
+                            <thead class="table_thead">
+                                <tr >
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Deal Code</th>
+                                    <th>Type of order</th>
+                                    <th>ISIN</th>
+                                    <th>Transaction type</th>
+                                    <th>Trd Curr.</th>
+                                    <th>Quantity</th>
+                                    <th>Dealing Price</th>
+                                    <th>Dealing charges(incl. GST)</th>
+                                    <th>GST</th>
+                                    <th>Conv Rate</th>
+                                    <th>Credit/debit</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (datas){ %>
+                                    <% datas.data.ac_acti.forEach(function(d){ %>
+                                <tr>
+                                    <td><%= d.date%></td>
+                                    <td><%= d.time%></td>
+                                    <td><%= d.code%></td>
+                                    <td><%= d.type%></td>
+                                    <td><%= d.isin%></td>
+                                    <td><%= d.trans_type%></td>
+                                    <td><%= d.trd_cur%></td>
+                                    <td><%= d.quan%></td>
+                                    <td><%= d.d_price%></td>
+                                    <td><%= d.d_charge%></td>
+                                    <td><%= d.gst%></td>
+                                    <td><%= d.c_rate%></td>
+                                    <td><%= d.credit%></td>
+                                    <td><%= d.balance%></td>
+                                </tr>
+                                <% })}else{ %>
+                                    <div>no found</div>
+                                <% }%>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="app"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grewBg">Issued by IG Markets Limited. ABN1232131231, Australia Financial Services Licence No.25464.Securites and assets are held by IG and an external custodian on your behalf</div>
+        <br>
+        <div class="grewBg">This confirmation contract note and statement are subject to the current terms and conditions of your share trading account. It may have been generated outside market hours. Please
+            promptly make us aware of any errors or omissions. Your order may have been executed as multiple market transactions across multiple trade execution venues. Each trade activity
+            transaction specifies the volume weighted average price for those market transactions. Please note that commissions may be shared with third parties. An itemised breakdown of
+            commissions and taxes is available on request. GST (where appropriate) applies to brokerage and miscellaneous charges, excluding stamp duty.</div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/jsx"  src="/js/custom.jsx"></script>
+</body>
+</html>
